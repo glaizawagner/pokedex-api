@@ -15,6 +15,10 @@ app.use(morgan(morganSetting));
 app.use(helmet());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('Hello!');
+});
+
 /* Authentication handler */
 app.use(function validateBearerToken(req, res, next) {
     //getting the value of API_TOKEN
@@ -29,10 +33,6 @@ app.use(function validateBearerToken(req, res, next) {
 
     // move to the next middleware
     next();
-});
-
-app.get('/', (req, res) => {
-    res.send('Hello!');
 });
 
 //valid types
